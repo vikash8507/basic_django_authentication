@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+    <h1 class="text-center alert alert-info">Registration Page</h1>
+
+    {% if registered %}
+        <h1 class="text-center alert alert-success">Thank you for registring!</h1>
+    {% else %}
+        <form action="" method="POST" enctype="multipart/form-data">
+            
+            {% csrf_token %}
+            {{user_form.as_p}}
+            {{profile_form.as_p}}
+
+            <input type="submit" value="Register" class='btn btn-outline-info'>
+            
+        </form>
+    {% endif %}
+
+{% endblock body %}
